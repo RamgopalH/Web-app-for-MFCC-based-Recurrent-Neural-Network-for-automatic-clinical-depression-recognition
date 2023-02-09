@@ -35,7 +35,6 @@ def MFCC_Preprocess(audio):
     step_size = 0.5  # seconds
     window_samples = int(window_length * fs)
     step_samples = int(step_size * fs)
-    print(len(data) , " ",len(data)/step_samples)
     # Define number of Mel-frequency bins
     n_mels = 24
 
@@ -153,8 +152,6 @@ for index,row in train_voice.iterrows():
         for aud in audiofiles:
             metrics = MFCC_Preprocess(aud)
             train_data = train_data.append(pd.DataFrame({"Audio":[metrics],"Binary":[row["PHQ8_Binary"]] ,"Score":[row["PHQ8_Score"]]}), ignore_index=True)
-        print(row["Participant_ID"])
-    
 train_data.to_csv(r'/kaggle/working/train.csv')
 
 # Making validation dataset
