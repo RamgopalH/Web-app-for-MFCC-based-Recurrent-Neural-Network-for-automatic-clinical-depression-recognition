@@ -7,7 +7,6 @@ def MFCC_Preprocess(audio):
     step_size = 0.5  # seconds
     window_samples = int(window_length * fs)
     step_samples = int(step_size * fs)
-    print(len(data) , " ",len(data)/step_samples)
     # Define number of Mel-frequency bins
     n_mels = 24
 
